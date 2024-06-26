@@ -16,6 +16,11 @@ export function formatUnixTime(time: number) {
   return date.toLocaleString();
 }
 
+export function formatUnixDate(time: number) {
+  const date = new Date(time * 1000);
+  return date.toLocaleDateString();
+}
+
 export function formatTimeAgo(time: number) {
   const date = new Date(time * 1000);
   const now = new Date();

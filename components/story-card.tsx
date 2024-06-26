@@ -26,7 +26,7 @@ export default function StoryCard({ story }: { story: StoryType }) {
 
       <CardContent className="flex-1 md:py-0 md:px-4">
         <CardDescription className="text-xs flex gap-1 flex-wrap">
-          <Link href={`/user/${story.by}}`} className="font-medium">
+          <Link href={`/user/${story.by}`} className="font-medium">
             {story.by}
           </Link>
           <span className="hidden md:block">&bull;</span>
@@ -46,10 +46,12 @@ export default function StoryCard({ story }: { story: StoryType }) {
       </CardContent>
 
       <CardFooter className="md:p-0">
-        <Badge variant="outline" className="gap-1">
-          <MessageCircleIcon size={12} /> {story.descendants}
-          <StarIcon size={12} /> {story.score}
-        </Badge>
+        <Link href={`/story/${story.id}`}>
+          <Badge variant="outline" className="gap-1">
+            <MessageCircleIcon size={12} /> {story.descendants}
+            <StarIcon size={12} /> {story.score}
+          </Badge>
+        </Link>
       </CardFooter>
     </Card>
   );
