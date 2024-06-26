@@ -1,4 +1,4 @@
-import { API_URL } from "./constants";
+import { API_URL, PAGE_SIZE } from "./constants";
 
 export const fetcher = async (path: string) => {
   const res = await fetch(`${API_URL}${path}`);
@@ -17,6 +17,8 @@ export const fetchItems = async (ids: number[]) => {
   return Promise.all(ids.map((id) => fetchStory(id)));
 };
 
-export const fetchStories = async (ids: number[], page: number = 0) => {
-  return await fetchItems(ids.slice(page, page + 30));
+export const fetchStories = async (ids: number[], page: number = 1) => {
+  return await fetchItems(
+    ids.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1),
+  );
 };

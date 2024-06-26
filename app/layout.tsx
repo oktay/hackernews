@@ -3,7 +3,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 
-import MainNav from "@/components/main-nav";
+import MainHeader from "@/components/main-header";
 import { SEO_DEFAULTS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -19,10 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={GeistSans.variable}>
       <body>
-        <header>
-          <MainNav />
-        </header>
-        <main>{children}</main>
+        <MainHeader />
+        <main className="pt-4 pb-8">{children}</main>
       </body>
     </html>
   );
