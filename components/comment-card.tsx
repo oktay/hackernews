@@ -19,7 +19,19 @@ export default async function CommentCard({
   return (
     <Card className={cn("w-full", sub && "bg-muted")}>
       <CardHeader className="text-sm text-muted-foreground">
-        {comment.by || "[deleted]"} {formatTimeAgo(comment.time)}
+        <div>
+          {comment.by ? (
+            <Link href={`/user/${comment.by}`} className="inline">
+              {comment.by}
+            </Link>
+          ) : (
+            <span>[deleted]</span>
+          )}
+          <span className="mx-2">&bull;</span>
+          <Link href={`/comment/${comment.id}`} className="inline">
+            {formatTimeAgo(comment.time)}
+          </Link>
+        </div>
       </CardHeader>
 
       <CardContent>

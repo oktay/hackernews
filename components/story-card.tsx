@@ -30,9 +30,9 @@ export default function StoryCard({ story }: { story: StoryType }) {
             {story.by}
           </Link>
           <span className="hidden md:block">&bull;</span>
-          <span title={formatUnixTime(story.time)}>
+          <Link href={`/story/${story.id}`} title={formatUnixTime(story.time)}>
             {formatTimeAgo(story.time)}
-          </span>
+          </Link>
         </CardDescription>
         <a href={story.url} target="_blank">
           <CardTitle className="text-sm leading-loose">

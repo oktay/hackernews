@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import MainNav from "./main-nav";
+import { ModeToggle } from "./mode-toggle";
 
 export default function MainHeader() {
   return (
@@ -10,6 +11,10 @@ export default function MainHeader() {
           HackerNews
         </Link>
         <MainNav />
+
+        <div className="ml-auto">
+          <ModeToggle />
+        </div>
       </div>
     </header>
   );
